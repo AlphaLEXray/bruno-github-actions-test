@@ -1,0 +1,27 @@
+name: Docker Compose Actions Workflow
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build the stack
+        id: build
+        run: |
+          mkdir -p /tmp/.docker-cache
+          docker-compose -f docker-compose.yaml build --progress=plain
+      - name: api test
+        run: |
+          npm install -g @usebruno/cli
+          cd bruno
+          bru run
