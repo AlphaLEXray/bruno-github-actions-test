@@ -18,6 +18,7 @@ jobs:
       - name: Build the stack
         id: build
         run: |
+          apt install python3-pip
           docker-compose -f docker-compose.yml build --progress=plain
       - name: api test
         run: |
