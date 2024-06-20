@@ -25,6 +25,6 @@ jobs:
           docker compose -f docker-compose.yml up --detach --wait
           npm install -g @usebruno/cli
           cd ./bruno
-          bru run
+          bru run --insecure
           cd ..
           docker compose -f docker-compose.yml down
