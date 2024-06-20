@@ -22,6 +22,7 @@ jobs:
           docker-compose -f docker-compose.yml build --progress=plain
       - name: api test
         run: |
+          docker compose -f docker-compose.yml up --detach --wait
           npm install -g @usebruno/cli
           cd bruno
           bru run
