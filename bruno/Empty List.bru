@@ -1,0 +1,23 @@
+meta {
+  name: Empty List
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8080/movies
+  body: none
+  auth: none
+}
+
+assert {
+  res.body: isEmpty 
+  res.status: eq 200
+}
+
+tests {
+  test("content test", function() {
+       const data = res.getBody();
+      expect(data).to.equal("");
+  });
+}
