@@ -19,7 +19,7 @@ jobs:
         id: build
         run: |
           mkdir -p /tmp/.docker-cache
-          docker-compose -f docker-compose.yaml build --progress=plain
+          docker-compose -f docker-compose.yml build --progress=plain
       - name: api test
         run: |
           npm install -g @usebruno/cli
