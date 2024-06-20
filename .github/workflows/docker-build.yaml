@@ -18,7 +18,6 @@ jobs:
       - name: Build the stack
         id: build
         run: |
-          mkdir -p /tmp/.docker-cache
           docker-compose -f docker-compose.yml build --progress=plain
       - name: api test
         run: |
