@@ -1,7 +1,7 @@
 meta {
-  name: Empty List
+  name: GetMovies
   type: http
-  seq: 2
+  seq: 4
 }
 
 get {
@@ -11,8 +11,8 @@ get {
 }
 
 assert {
-  res.body: isEmpty
-  res.status: eq 200
+  res.body.id: eq 1
+  res.body.name: eq Prey
 }
 
 tests {

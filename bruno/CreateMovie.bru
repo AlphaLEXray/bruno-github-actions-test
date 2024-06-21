@@ -1,0 +1,17 @@
+meta {
+  name: CreateMovie
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://0.0.0.0:8080/movies
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "PrEy"
+  }
+}
