@@ -14,10 +14,3 @@ assert {
   res.body.id: eq 1
   res.body.name: eq Prey
 }
-
-tests {
-  test("content test", function() {
-       const data = res.getBody();
-      expect(data).to.equal("");
-  });
-}
