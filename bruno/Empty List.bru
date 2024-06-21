@@ -5,19 +5,24 @@ meta {
 }
 
 get {
-  url: http://0.0.0.0:8080/movies
+  url: http://localhost:8080/movies
   body: none
   auth: none
 }
 
 assert {
-  res.body: isEmpty
-  res.status: eq 200
+  ~res.body: isEmpty
+  ~res.status: eq 200
 }
 
 tests {
-  test("content test", function() {
+  test("Content empty?", function() {
        const data = res.getBody();
-      expect(data).to.equal("");
+      expect(data).empty;
+  });
+  
+  test("Status = 200", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(200);
   });
 }

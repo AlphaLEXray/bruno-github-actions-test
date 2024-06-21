@@ -5,13 +5,20 @@ meta {
 }
 
 post {
-  url: http://0.0.0.0:8080/movies
+  url: http://localhost:8080/movies
   body: json
   auth: none
 }
 
 body:json {
   {
-    "name": "PrEy"
+    "name": "Prey"
   }
+}
+
+tests {
+  test("Status = 201", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(201);
+  });
 }

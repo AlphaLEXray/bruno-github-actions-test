@@ -1,0 +1,18 @@
+meta {
+  name: DeleteMovie
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:8080/movies/id/2
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status = 404", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(404);
+  });
+}

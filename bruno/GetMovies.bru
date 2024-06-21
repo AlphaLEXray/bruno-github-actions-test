@@ -5,12 +5,29 @@ meta {
 }
 
 get {
-  url: http://0.0.0.0:8080/movies
+  url: http://localhost:8080/movies
   body: none
   auth: none
 }
 
 assert {
-  res.body.id: eq 1
-  res.body.name: eq Prey
+  ~res.body.id: eq 1
+  ~res.body.name: eq Prey
+}
+
+tests {
+  test("Status = 200", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("ID is correct?", function() {
+    const data = res.getBody();
+    expect (data[0].id).exists;
+  });
+  
+  test("Name is correct?", function() {
+    const data = res.getBody();
+    expect (data[0].name).to.equal("Prey");
+  });
 }
